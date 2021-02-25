@@ -1,0 +1,18 @@
+<script>
+function openNews(url) {
+  window.open(url, "_blank")
+}
+</script>
+
+<div>
+  <div id="columns">
+    {{#each news}}
+      <div id="news-item">
+          <img src="{{urlToImage}}" />
+          <span id="news-title">{{title}}</span>
+          <p>{{description}}</p>
+          <button onclick="openNews('{{url}}')" id="news-open" >Read more</button>
+      </div>
+    {{/each}}
+  </div>
+</div>

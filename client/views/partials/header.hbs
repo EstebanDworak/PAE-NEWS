@@ -1,0 +1,23 @@
+<script>
+function myFunction(event) {
+  event.preventDefault()
+  const searchValue = document.getElementById("searchInput").value
+  console.log(searchValue)
+  location.replace(`./${searchValue}`)
+}
+</script>
+
+<div id="header">
+    <span id="title">ITESO News App</span>
+    <br>
+    <form onsubmit="myFunction(event)">
+
+    <input id="searchInput" type="text" placeholder="{{search}}">
+    <br>
+    <button type="submit" id="searchButton" onclick="myFunction()">Go</button>
+    </form>
+    <br>
+    <span id="slogan">
+    This  project depends on <a href="https://newsapi.org/">News API</a>, a simple HTTP REST API for searching and retrieving live articles from all over the web.
+    </span>
+</div>
