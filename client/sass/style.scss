@@ -38,6 +38,19 @@ html {
     border-radius: 7px;
     background-color: #20639b;
     color: white;
+    cursor: pointer;
+  }
+
+  #regButton {
+    margin-top: 8px;
+    width: 200px;
+    border: none;
+    padding: 10px;
+    // padding-left: 20px;
+    border-radius: 7px;
+    background-color: #20639b;
+    color: white;
+    cursor: pointer;
   }
 
   #slogan a {
@@ -90,5 +103,42 @@ html {
   #news-item p {
     font-size: 15px;
     text-align: justify;
+  }
+
+  #registerForm{
+    margin:20px;
+    width: 300px;
+    position: absolute;
+    top:10px;
+    left:50%;
+    transform: translate(-50%, 0);
+
+  }
+
+  #registerForm input{
+    width: calc(100% - 15px);
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 0px;
+    margin-bottom: 5px;
+    
+  }
+
+  .success{
+    background-color: #27ae60;
+    color:white;
+    padding:6px;
+    text-align: center;
+    font-size: 13px;
+  }
+
+  .error{
+background-color: #c0392b;
+    color:white;
+    padding:6px;
+    text-align: center;
+    font-size: 13px;
   }
 }

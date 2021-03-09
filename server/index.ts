@@ -5,14 +5,13 @@ import * as express from "express";
 import * as exphbs from "express-handlebars";
 import * as logger from "morgan";
 import * as path from "path";
-import {config} from 'dotenv'
-
-config()
+import { config } from "dotenv";
+import * as mongoose from "mongoose";
+config();
 
 import Router from "./home";
 
 const app = express();
-
 
 app.use(logger("dev"));
 app.use(bodyParser.json());
@@ -32,7 +31,6 @@ app.engine(
 );
 app.set("view engine", ".hbs");
 
-
 // Router configuration
 const router = express.Router();
 app.use("/", Router);
@@ -41,7 +39,19 @@ app.use("/", Router);
 const PORT = process.env.PORT || 3000;
 app.set("port", PORT);
 const server = http.createServer(app);
-server.listen(PORT,()=>{
+server.listen(PORT, () => {
   debug(`Listening on ${PORT}.`);
 });
 
+(async () => {
+  await mongoose.connect(
+    process.env.MONGO,
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+      useFindAndModify: false,
+      useCreateIndex: true,
+    }
+  );
+  console.log("Connected to mongo DB");
+})();

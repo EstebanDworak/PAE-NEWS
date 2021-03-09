@@ -1,0 +1,29 @@
+<script>
+function openNews(url) {
+  window.open(url, "_blank")
+}
+</script>
+
+<div>
+  {{#if success}}
+    <div class="success">
+      <span>User was registered correctly</span>
+    </div>
+  {{/if}}
+  {{#if error}}
+    <div class="error">
+      <span>An error ocurred while registering user</span>
+    </div>
+  {{/if}}
+  <div style="position: relative;">
+    <form id="registerForm" action="/register" method="post" enctype="multipart/form-data">
+
+      <input id="formInput" type="text" name="name" placeholder="Nombre">
+      <input id="formInput" type="text" name="email" placeholder="Email">
+      <input id="formInput" type="password" name="password" placeholder="Contraseña">
+      <input id="formInput" type="file" name="avatar" />
+      <input type="submit" value="Get me the stats!" class="btn btn-default"> 
+
+    </form>
+  </div>
+</div>

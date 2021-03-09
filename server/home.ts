@@ -1,5 +1,9 @@
 import { Request, Response, Router } from "express";
 import fetch from "node-fetch";
+import User from "./User";
+
+var multer = require("multer");
+var upload = multer({ dest: "uploads/" });
 
 const router = Router();
 
@@ -16,6 +20,24 @@ const fetchNews = async (search) => {
   return await request.json();
 };
 
+router.post("/register", upload.single("avatar"), function (req, res, next) {
+  console.log(req.body);
+  try {
+    const user = new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+    });
+    user.save();
+    res.render("register", { success: true });
+  } catch {
+    res.render("register", { error: true });
+  }
+});
+
+router.get("/register", async (req: Request, res: Response) => {
+  res.render("register", {});
+});
 router.get("/", async (req: Request, res: Response) => {
   res.redirect("/Apple");
 });

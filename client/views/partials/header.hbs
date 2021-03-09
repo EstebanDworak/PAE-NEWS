@@ -5,6 +5,9 @@ function myFunction(event) {
   console.log(searchValue)
   location.replace(`./${searchValue}`)
 }
+function regClick(event) {
+  location.replace(`./register`)
+}
 </script>
 
 <div id="header">
@@ -20,4 +23,6 @@ function myFunction(event) {
     <span id="slogan">
     This  project depends on <a href="https://newsapi.org/">News API</a>, a simple HTTP REST API for searching and retrieving live articles from all over the web.
     </span>
+    <br>
+    <button type="submit" id="regButton" onclick="regClick()">Registrarse</button>
 </div>
