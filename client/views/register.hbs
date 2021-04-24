@@ -16,6 +16,7 @@ function openNews(url) {
     </div>
   {{/if}}
   <div style="position: relative;">
+
     <form id="registerForm" action="/register" method="post" enctype="multipart/form-data">
 
       <input id="formInput" type="text" name="name" placeholder="Nombre">
@@ -23,6 +24,7 @@ function openNews(url) {
       <input id="formInput" type="password" name="password" placeholder="Contraseña">
       <input id="formInput" type="file" name="avatar" />
       <input type="submit" value="Get me the stats!" class="btn btn-default"> 
+            <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> SignIn with Google</a>
 
     </form>
   </div>
