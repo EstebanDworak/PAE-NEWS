@@ -4,6 +4,7 @@ function openNews(url) {
 }
 </script>
 
+
 <div>
   {{#if success}}
     <div class="success">
@@ -24,8 +25,15 @@ function openNews(url) {
       <input id="formInput" type="password" name="password" placeholder="Contraseña">
       <input id="formInput" type="file" name="avatar" />
       <input type="submit" value="Get me the stats!" class="btn btn-default"> 
-            <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google"></span> SignIn with Google</a>
-
+      <br>
+      <a href="/auth/google" style="width: 100%;" id="button-google" class="btn btn-danger">
+      <div style="margin-top: 15px;width: 100%;background-color: white;border-radius: 5px;padding:10px;" id="button-google">
+<img width="20px" style="margin-top:7px; margin-right:8px" alt="Google sign-in" 
+                src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+    
+      Iniciar sesión con Google
+      </div>
+      </a>
     </form>
   </div>
 </div>

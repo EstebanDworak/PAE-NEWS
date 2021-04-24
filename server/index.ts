@@ -66,7 +66,9 @@ app.use(passport.session());
 // // Router configuration
 
 
-app.get('/success', (req, res) => res.send(userProfile));
+app.get('/success', (req, res) => {
+    res.render("register", { success: true, user: userProfile?.displayName? userProfile.displayName:'' });
+});
 app.get('/error', (req, res) => res.send("error logging in"));
 
 passport.serializeUser(function(user, cb) {
@@ -83,7 +85,7 @@ const GOOGLE_CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
 passport.use(new GoogleStrategy({
     clientID: GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://nameless-escarpment-75336.herokuapp.com/auth/google/callback"
+    callbackURL: "http://localhost:3000/auth/google/callback"
   },
   function(accessToken, refreshToken, profile, done) {
       userProfile=profile;
